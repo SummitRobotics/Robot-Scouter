@@ -100,6 +100,7 @@ fun Project.configureAndroid() {
         }
 
         lintOptions {
+            isCheckDependencies = true
             isCheckAllWarnings = true
             isWarningsAsErrors = true
             isAbortOnError = false
@@ -107,7 +108,9 @@ fun Project.configureAndroid() {
             baseline(file("$rootDir/app/android-base/lint-baseline.xml"))
             disable(
                     "InvalidPackage", // Needed because of Okio
-                    "GradleDependency", "NewerVersionAvailable" // For build reproducibility
+                    "GradleDependency", "NewerVersionAvailable", // For build reproducibility
+                    "WrongThreadInterprocedural", // Slow
+                    "SyntheticAccessor" // Don't care, proguard should deal with it
             )
 
             val reportsDir = "$buildDir/reports"
