@@ -110,7 +110,7 @@ object Config {
 
         object Misc {
             private const val leakCanaryVersion = "1.6.2"
-            private const val retrofitVersion = "2.4.0"
+            private const val retrofitVersion = "2.5.0"
             private const val poiVersion = "3.17"
 
             private const val glideVersion = "4.8.0"
